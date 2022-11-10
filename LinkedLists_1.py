@@ -57,7 +57,6 @@ class LinkedList:
         while curNode.next != None :
             curNode = curNode.next
             if (curNode.data.target == node.target) :
-                print("Debug")
                 node = Node(data)
                 node.next = curNode.next
                 curNode.next = node
@@ -71,6 +70,15 @@ class LinkedList:
             curNode.next = Node(array[i])
             curNode = curNode.next
         
+    def insertArrayAtBeg(self, array):
+        curNode = self.head
+        nextNode = curNode.next
+        for i in range(len(array)):
+            node = Node(array[i])
+            curNode.next = node
+            curNode = curNode.next
+        curNode.next = nextNode
+            
 
     # Deletion methods
     def deletAtBeg(self):
@@ -105,7 +113,6 @@ class LinkedList:
         return output
 
 
-
 def main():
     l1 = LinkedList()
 
@@ -121,6 +128,7 @@ def main():
 
     array_1 = [Ahmed,Mustapha,Khaled] 
     array_2 = [Salma,hassan,othman] 
+
     # l1.insertAtBeg(Ahmed)
     # l1.insertAtEnd(Mustapha)
     # l1.insertAtBeg(Khaled)
@@ -132,13 +140,14 @@ def main():
     # l1.insertArrayAtEnd(array_2)
     
     # l1.insertArrayAtEnd(array_1)
-
+    # l1.insertAtBeg(Mohamed)
+    l1.insertArrayAtBeg(array_2)
 
     print("Before-------------")
     print(l1)
 
-    l1.insertAtBeg(Khaled)
-    l1.insertBeforeNode(Mohamed, Khaled)
+    # l1.insertAtBeg(Khaled)
+    # l1.insertBeforeNode(Mohamed, Khaled)
 
     print("After-------------")
     print(l1)
