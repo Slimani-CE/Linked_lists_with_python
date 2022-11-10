@@ -101,6 +101,15 @@ class LinkedList:
         if(curNode.next != None):
             curNode.next = curNode.next.next
 
+    def deleteNode(self, data):
+        curNode = self.head
+        lastNode = curNode
+        while(curNode.next != None):
+            lastNode = curNode
+            curNode = curNode.next
+            if curNode.data.target == data.target:
+                lastNode.next = curNode.next
+                break
 
     def __str__(self) -> str:
         output = ""
@@ -116,39 +125,39 @@ class LinkedList:
 def main():
     l1 = LinkedList()
 
-    Ahmed = Data(10, "Ahmed", 31)
-    Mustapha = Data(11, "Mustapha", 29)
-    Khaled = Data(12, "Khaled", 35)
+    ahmed = Data(10, "Ahmed", 31)
+    mustapha = Data(11, "Mustapha", 29)
+    khaled = Data(12, "Khaled", 35)
 
-    Mohamed = Data(13, "Mohamed", 20)
+    mohamed = Data(13, "Mohamed", 20)
 
-    Salma = Data(14, "Salma", 21)
+    salma = Data(14, "Salma", 21)
     hassan = Data(15, "Hassan", 23)
     othman = Data(16, "Othman", 21)
 
-    array_1 = [Ahmed,Mustapha,Khaled] 
-    array_2 = [Salma,hassan,othman] 
+    array_1 = [ahmed,mustapha,khaled] 
+    array_2 = [salma,hassan,othman] 
 
-    # l1.insertAtBeg(Ahmed)
-    # l1.insertAtEnd(Mustapha)
-    # l1.insertAtBeg(Khaled)
-    # l1.insertAtBeg(Mohamed)
-    # l1.insertAtIndex(Salma, 1)
+    # l1.insertAtBeg(ahmed)
+    # l1.insertAtEnd(mustapha)
+    # l1.insertAtBeg(khaled)
+    # l1.insertAtBeg(mohamed)
+    # l1.insertAtIndex(salma, 1)
     # l1.insertAtIndex(hassan, 2)
 
 
     # l1.insertArrayAtEnd(array_2)
     
     # l1.insertArrayAtEnd(array_1)
-    # l1.insertAtBeg(Mohamed)
-    l1.insertArrayAtBeg(array_2)
+    # l1.insertAtBeg(mohamed)
+    # l1.insertArrayAtBeg(array_2)
 
+    l1.insertAtBeg(othman)
     print("Before-------------")
     print(l1)
 
-    # l1.insertAtBeg(Khaled)
-    # l1.insertBeforeNode(Mohamed, Khaled)
-
+    # l1.insertBeforeNode(mohamed, khaled)
+    l1.deleteNode(othman)
     print("After-------------")
     print(l1)
 
